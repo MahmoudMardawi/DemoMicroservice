@@ -7,12 +7,8 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 
-
-var dbHost = "localhost";
-var dbName = "dms_customer";
-var dbPassword = "Ma@091847";
-var connectionstring = $"Data Source ={dbHost}; Initial Catalog ={dbName}; User ID = sa; Password ={dbPassword}";
-builder.Services.AddDbContext<CustomerDbContext>(opt => opt.UseSqlServer(connectionstring));
+ 
+builder.Services.AddDbContext<CustomerDbContext>(opt => opt.UseSqlServer("Data Source=LAPTOP-GINQ8KH0;Initial Catalog=Customer;User ID=sa;Password=Ma@091847;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False"));
 
 var app = builder.Build();
 
